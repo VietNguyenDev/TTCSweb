@@ -2,8 +2,11 @@
   "name": "ttcs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
+  "type": "module",
   "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon -- exec app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,8 +20,15 @@
   },
   "homepage": "https://github.com/VietNguyenDev/TTCSweb#readme",
   "dependencies": {
+    "body-parser": "1.19.0",
+    "cors": "^2.8.5",
     "dayjs": "^1.11.1",
+    "dotenv": "10.0.0",
+    "ejs": "^3.1.7",
     "express": "4.17.1",
-    "lodash": "^4.17.21"
+    "knex": "^2.0.0",
+    "lodash": "^4.17.21",
+    "mysql": "^2.18.1",
+    "objection": "^3.0.1"
   }
 }
