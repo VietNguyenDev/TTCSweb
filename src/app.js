@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
-import router from './app/router.js';
+import router from './api/routers/router.js';
 import { Model } from 'objection';
 import KnexConfig from './databases/knex.js';
 import bodyParser from 'body-parser';
