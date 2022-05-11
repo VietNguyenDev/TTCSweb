@@ -1,6 +1,6 @@
-import getProductsCategory from "../services/http/category.service.js";
+import getProductsCategory from "../../services/category.service.js";
 
-const CategoryController = async (req, res) => {
+const getListCategoryController = async (req, res) => {
   const prod_category = await getProductsCategory();
   if (prod_category.length > 0) {
     res.status(200).json(prod_category);
@@ -9,4 +9,4 @@ const CategoryController = async (req, res) => {
   }
 }
 
-export default CategoryController;
+export default getListCategoryController;

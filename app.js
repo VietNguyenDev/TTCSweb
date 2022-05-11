@@ -1,8 +1,8 @@
 import express from 'express';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
-import router from './src/api/routers/Products.router.js';
-import router1 from './src/api/routers/category.router.js';
+import apiProducts from './app/http/apis/products.api.js';
+import apiCategory from './app/http/apis/category.api.js';
 import { Model } from 'objection';
 import KnexConfig from './databases/knex.js';
 import bodyParser from 'body-parser';
@@ -14,8 +14,8 @@ const port = process.env.PORT || 3000;
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use('/api', router);
-app.use('/api', router1);
+app.use('/api', apiProducts);
+app.use('/api', apiCategory);
 
 app.listen(port, () => {
  console.log(`Example app listening on port http://localhost:${port}`)
