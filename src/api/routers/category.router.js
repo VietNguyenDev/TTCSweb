@@ -1,14 +1,14 @@
 import express from 'express';
-import CategoryController from './http/controllers/category.controller.js';
+import CategoryController from '../controllers/category.controller.js';
 
 
 
-const router = express.Router();
+const router1 = express.Router();
 
 
-router.get('/category', CategoryController);
-router.post('/category', CategoryController);
+router1.get('/category', CategoryController);
+router1.post('/category', CategoryController);
 
 
 
-export default router;
+export default router1;

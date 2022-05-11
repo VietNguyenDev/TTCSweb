@@ -1,4 +1,4 @@
-import  getProductsCategory   from "../services/category.service.js"
+import getProductsCategory from "../services/http/category.service.js";
 
 const CategoryController = async (req, res) => {
   const prod_category = await getProductsCategory();

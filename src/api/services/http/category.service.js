@@ -5,4 +5,4 @@ async function getProductCategory() {
   return await CategoryModel.query().select();
 }
 
-export default getProductsCategory;
+export default getProductCategory;
