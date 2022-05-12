@@ -1,8 +1,15 @@
 import express from 'express';
 import getListCategoryController from '../controllers/Category/getListCategory.controller.js';
+import createCategoryController from "./controllers/Category/createCategoryController.js";
+import DeleteCategoryController from '../controllers/Category/deleteCategory.controller.js';
+import updateProductController from '../controllers/Product/updateProduct.controller.js';
+import { handleError } from '../../helpers/errors.js';
+
 
 const apiCategory = express.Router();
-apiCategory.get('/category', getListCategoryController);
-// apiCategory.post('/category', CategoryController);
+apiCategory.get('/category', handleError(getListCategoryController));
+apiCategory.post('/category', handleError(createCategoryController));
+apiCategory.post('/category', handleError(DeleteCategoryController));
+apiCategory.post('/category', handleError(updateProductController));
 
 export default apiCategory;
