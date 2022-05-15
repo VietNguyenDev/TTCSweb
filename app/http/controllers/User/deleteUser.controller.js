@@ -1,8 +1,8 @@
-import {DeleteUser} from "./services/user.service.js";
-
+import { DeleteUserService } from  "../../services/user.service.js";
+ 
 async function DeleteUserController(req, res) {
     const {id} = req.params;
-    await DeleteUser({id});
+    await DeleteUserService({id});
     return res.status(200).send({message: "User deleted successfully"});
 }
 

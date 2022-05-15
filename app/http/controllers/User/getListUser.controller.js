@@ -1,11 +1,16 @@
-import {GetUser} from "../../service/user.service.js";
+import { GetUserService } from "../../services/user.service.js";
 
 const getListUserController = async (req, res) => {
-    const user = await GetUser();
+    const user = await GetUserService();
     if (user.length > 0) {
         res.status(200).json(user);
     } else {
-        res.status(404).json({ message: "User is empty"})
+        try {
+            
+          }
+          catch(err) {
+            res.status(500).send({ message : "Lỗi hệ thống"});
+          }
     }
 }
 

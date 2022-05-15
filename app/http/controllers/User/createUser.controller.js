@@ -1,8 +1,8 @@
-import {CreateUser} from "./services/user.service.js";
+import { CreateUserService } from "../../services/user.service.js";
 
 const createUserController = async (req, res) => {
-    const {id, username,password, first_name, last_name, telephone, created_at, modified_at} = req.body;
-    const {message} = await CreateUser({id, username,password, first_name, last_name, telephone, created_at, modified_at});
+    const {username,password, first_name, last_name, telephone, created_at, modified_at} = req.body;
+    const {message} = await CreateUserService({username,password, first_name, last_name, telephone, created_at, modified_at});
     return res.status(201).send(message);
 
 }

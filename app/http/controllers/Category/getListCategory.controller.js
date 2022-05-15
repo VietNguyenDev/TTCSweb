@@ -1,7 +1,7 @@
-import getProductsCategory from "../../services/category.service.js";
+import { getCategoryService } from "../../services/category.service.js";
 
 const getListCategoryController = async (req, res) => {
-  const prod_category = await getProductsCategory();
+  const prod_category = await getCategoryService();
   if (prod_category.length > 0) {
     res.status(200).json(prod_category);
   } else {
