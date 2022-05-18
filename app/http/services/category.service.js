@@ -40,4 +40,4 @@ async function UpdateCategoryService({id, name, descr, create_at, modified_at, d
 }
 
 
-export {getCategoryService, CreateCategoryService, DeleteCategoryService, UpdateCategoryS} ;
+export {getCategoryService, CreateCategoryService, DeleteCategoryService, UpdateCategoryService} ;
