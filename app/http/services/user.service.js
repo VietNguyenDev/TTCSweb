@@ -2,7 +2,12 @@ import UserModel from "../models/user.model.js";
 import {abort} from "../../helpers/errors.js";
 
 async function GetUserService() {
-    return await UserModel.query().select();
+    try {
+        const users = await UserModel.query().select();
+        return users;
+    } catch (error) {
+        return abort(500, error.message);        
+    }
 }
 
 async function CreateUserService({username,password, role, first_name, last_name, telephone, created_at, modified_at}) {
