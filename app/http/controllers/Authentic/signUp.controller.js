@@ -1,7 +1,7 @@
 import Joi from "joi";
 
 import { abort } from "../../../helpers/errors.js";
-import authentic from "../../services/authentic.service.js";
+import "../../services/authentic.service.js";
 
 async function validate (params) {
     try {
