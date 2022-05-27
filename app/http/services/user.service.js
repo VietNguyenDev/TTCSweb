@@ -3,7 +3,7 @@ import {abort} from "../../helpers/errors.js";
 
 async function GetUserService() {
     try {
-        const users = await UserModel.query().select();
+        const users = await UserModel.query().select('id', 'username', 'email', 'first_name', 'last_name', 'telephone', 'created_at', 'modified_at');
         return users;
     } catch (error) {
         return abort(500, error.message);        

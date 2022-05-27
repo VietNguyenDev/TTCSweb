@@ -1,6 +1,4 @@
 import dayjs from "dayjs";
-
-
 async function createOrderDetailsService(orderItems,userId) {
     const order = {
         create_at : dayjs().format('YYYY-MM-DD'),
@@ -11,9 +9,5 @@ async function createOrderDetailsService(orderItems,userId) {
         })),
     };
 };
-
-
-
-
 
 export default createOrderDetailsService;

@@ -5,23 +5,27 @@ async function GetProductsService() {
   return await ProductModel.query().select();
 }
 
-async function CreateProductService({name, buy_price, sell_price, description, country, create_at, modified_at, category_id, discount_id, deleted_at, inventory_id }) {
-  const product = await ProductModel.query().findOne({ name });
-  if (product) return abort(400, "Product already exists");
-  await ProductModel.query().insert({
-    name,
-    buy_price,
-    sell_price,
-    description,
-    country,
-    create_at,
-    modified_at,
-    category_id,
-    discount_id,
-    deleted_at,
-    inventory_id
-  });
-  return { message: "Product created successfully" };
+async function CreateProductService({name, buy_price, sell_price, description, country, category_id, discount_id, inventory_id , image}) {
+  try {
+    const product = await ProductModel.query().findOne({ name });
+    if (product) return abort(400, "Product already exists");
+    await ProductModel.query().insert({
+      name,
+      image,
+      buy_price,
+      sell_price,
+      description,
+      country,
+      category_id,
+      discount_id,
+      inventory_id
+    });
+    return { message: "Product created successfully" };
+  } catch (error) {
+    console.log("🚀 ~ file: product.service.js ~ line 25 ~ CreateProductService ~ error", error)
+    return abort(400, error);
+  }
+  
 }
 
 async function DeleteProductService({ id }) {
