@@ -5,7 +5,17 @@ async function GetProductsService() {
   return await ProductModel.query().select();
 }
 
-async function CreateProductService({name, buy_price, sell_price, description, country, category_id, discount_id, inventory_id , image}) {
+async function CreateProductService({
+  name,
+  buy_price,
+  sell_price,
+  description,
+  country,
+  category_id,
+  discount_id,
+  inventory_id,
+  image,
+}) {
   try {
     const product = await ProductModel.query().findOne({ name });
     if (product) return abort(400, "Product already exists");
@@ -18,13 +28,12 @@ async function CreateProductService({name, buy_price, sell_price, description, c
       country,
       category_id,
       discount_id,
-      inventory_id
+      inventory_id,
     });
     return { message: "Product created successfully" };
   } catch (error) {
     return abort(400, error);
   }
-  
 }
 
 async function DeleteProductService({ id }) {
@@ -34,7 +43,20 @@ async function DeleteProductService({ id }) {
   return { message: "Product deleted successfully" };
 }
 
-async function UpdateProductService({ id, name, buy_price, sell_price, description, country, create_at, modified_at, category_id, discount_id, deleted_at, inventory_id }) {
+async function UpdateProductService({
+  id,
+  name,
+  buy_price,
+  sell_price,
+  description,
+  country,
+  create_at,
+  modified_at,
+  category_id,
+  discount_id,
+  deleted_at,
+  inventory_id,
+}) {
   const product = await ProductModel.query().findById(id);
   if (!product) return abort(404, "Product not found");
   await ProductModel.query().patchAndFetchById(id, {
@@ -49,9 +71,14 @@ async function UpdateProductService({ id, name, buy_price, sell_price, descripti
     category_id,
     discount_id,
     deleted_at,
-    inventory_id
+    inventory_id,
   });
   return { message: "Product updated successfully" };
 }
 
-export { GetProductsService, CreateProductService, DeleteProductService , UpdateProductService};
+export {
+  GetProductsService,
+  CreateProductService,
+  DeleteProductService,
+  UpdateProductService,
+};
