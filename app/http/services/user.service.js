@@ -10,18 +10,13 @@ async function GetUserService() {
     }
 }
 
-async function CreateUserService({username,password, role, first_name, last_name, telephone, created_at, modified_at}) {
+async function CreateUserService({username,password, role}) {
     const user = await CreateUser.query().findOne({username});
     if (user) return abort(400, "User already exists");
     await UserModel.query().insert({ 
         username, 
         password,
-        role,
-        first_name,
-        last_name,
-        telephone,
-        created_at,
-        modified_at
+        role
     });
     return {message: "User created successfully"};
 }

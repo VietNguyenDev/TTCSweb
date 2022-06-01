@@ -1,4 +1,4 @@
-import CommentModel from "../models/comment.model";
+import CommentModel from "../models/comment.model.js";
 
 export async function getCommentsService(productId) {
     try {
@@ -9,7 +9,7 @@ export async function getCommentsService(productId) {
     }
 }
 
-export async function deleteCommentService(co mmentId) {
+export async function deleteCommentService(commentId) {
     try {
         const comment = await CommentModel.query().deleteById(commentId);
         return { message: "Comment deleted successfully", data: comment };
@@ -18,7 +18,7 @@ export async function deleteCommentService(co mmentId) {
     }
 }
 
-export async function createCommetService(comment) {
+export async function createCommentService(comment) {
     try {
         const newComment = await CommentModel.query().insert(comment);
         return { message: "Comment created successfully", data: newComment };

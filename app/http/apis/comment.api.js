@@ -1,7 +1,7 @@
 import express from "express";
-import { createCommentController } from "../controllers/comment/createComment.controller";
-import { deleteCommentController } from "../controllers/comment/deleteComment.controller";
-import { getCommentsController } from "../controllers/comment/getComments.controller";
+import { createCommentController } from "../controllers/comment/createComment.controller.js";
+import { deleteCommentController } from "../controllers/comment/deleteComment.controller.js";
+import { getCommentsController } from "../controllers/comment/getListComment.controller.js";
 
 const apiComments = express.Router();
 

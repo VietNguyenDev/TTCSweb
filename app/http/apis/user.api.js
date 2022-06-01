@@ -8,7 +8,7 @@ import { handleError } from "../../helpers/errors.js";
 const apiUser = express.Router();
 apiUser.get('/user', handleError(getListUserController));
 apiUser.post('/user', handleError(createUserController));
-apiUser.post('/user', handleError(DeleteUserController));
-apiUser.post('/user', handleError(updateUserController));
+apiUser.post('/user/:id', handleError(DeleteUserController));
+apiUser.post('/user/:id', handleError(updateUserController));
 
 export default apiUser;

@@ -22,7 +22,6 @@ async function CreateProductService({name, buy_price, sell_price, description, c
     });
     return { message: "Product created successfully" };
   } catch (error) {
-    console.log("🚀 ~ file: product.service.js ~ line 25 ~ CreateProductService ~ error", error)
     return abort(400, error);
   }
   

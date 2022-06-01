@@ -1,17 +1,10 @@
 import { UpdateUserService } from "../../services/user.service.js";
 
 const updateUserController = async (req,res) => {
-    const {id} = req.params;
-    const {username,password, first_name, last_name, telephone, created_at, modified_at} = req.body;
-    const {message} = await UpdateUserService({
-        id, 
+    const {username,password} = req.body;
+    const {message} = await UpdateUserService({ 
         username, 
-        password,
-        first_name,
-        last_name,
-        telephone,
-        created_at,
-        modified_at
+        password
     });
 
     return res.status(200).send({message});
