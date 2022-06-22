@@ -2,11 +2,11 @@ import {UpdateCategoryService} from "../../services/category.service.js";
   
   const updateCategoryController = async (req, res) => {
     const { id } = req.params;
-    const { name, descr, create_at, modified_at, deleted_at } = req.body;
+    const { name, description, create_at, modified_at, deleted_at } = req.body;
     const { message } = await UpdateCategoryService({
         id, 
         name,
-        descr,
+        description,
         create_at,
         modified_at,
         deleted_at

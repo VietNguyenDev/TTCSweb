@@ -2,7 +2,7 @@ import { Model } from 'objection';
 
 class CategoryModel extends Model {
   static get tableName() {
-    return 'category';
+    return 'product_category';
   }
 }
 

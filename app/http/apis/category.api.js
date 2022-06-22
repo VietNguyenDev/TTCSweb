@@ -9,7 +9,7 @@ import { handleError } from '../../helpers/errors.js';
 const apiCategory = express.Router();
 apiCategory.get('/category', handleError(getListCategoryController));
 apiCategory.post('/category', handleError(createCategoryController));
-apiCategory.post('/category', handleError(DeleteCategoryController));
-apiCategory.post('/category', handleError(updateProductController));
+apiCategory.post('/category/:id', handleError(DeleteCategoryController));
+apiCategory.post('/category/:id', handleError(updateProductController));
 
 export default apiCategory;

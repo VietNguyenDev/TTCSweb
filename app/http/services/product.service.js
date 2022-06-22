@@ -1,11 +1,15 @@
 import ProductModel from "../models/product.model.js";
 import { abort } from "../../helpers/errors.js";
 
-async function GetProductsService() {
-  return await ProductModel.query().select();
+async function GetListProductsService() {
+  try {
+    return await ProductModel.query().select();
+  } catch (error) {
+    return abort(500, "Error retrieving products");
+  }
 }
 
-async function CreateProductService({
+export async function CreateProductService({
   name,
   buy_price,
   sell_price,
@@ -36,14 +40,14 @@ async function CreateProductService({
   }
 }
 
-async function DeleteProductService({ id }) {
+export async function DeleteProductService({ id }) {
   const product = await ProductModel.query().findById(id);
   if (!product) return abort(404, "Product not found");
   await ProductModel.query().deleteById(id);
   return { message: "Product deleted successfully" };
 }
 
-async function UpdateProductService({
+export async function UpdateProductService({
   id,
   name,
   buy_price,
@@ -56,6 +60,7 @@ async function UpdateProductService({
   discount_id,
   deleted_at,
   inventory_id,
+  image,
 }) {
   const product = await ProductModel.query().findById(id);
   if (!product) return abort(404, "Product not found");
@@ -72,12 +77,13 @@ async function UpdateProductService({
     discount_id,
     deleted_at,
     inventory_id,
+    image,
   });
   return { message: "Product updated successfully" };
 }
 
 export {
-  GetProductsService,
+  GetListProductsService,
   CreateProductService,
   DeleteProductService,
   UpdateProductService,

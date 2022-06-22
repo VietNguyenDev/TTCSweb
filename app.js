@@ -13,6 +13,7 @@ import apiUserProperty from "./app/http/apis/userProperty.api.js";
 import apiComment from "./app/http/apis/comment.api.js";
 import apiAuth from "./app/http/apis/auth.api.js";
 import apiSearch from "./app/http/apis/search.api.js";
+import apiOrder from "./app/http/apis/order.api.js";
 
 Model.knex(KnexConfig);
 dotenv.config();
@@ -36,6 +37,7 @@ app.use("/api", apiUserProperty);
 app.use("/api", apiAuth);
 app.use("/api", apiSearch);
 app.use("/api", apiComment);
+app.use("/api", apiOrder);
 
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
